@@ -23,24 +23,19 @@ def single_plot(
     x = np.linspace(-5, 5, 100)
     y = func(x)
 
-    # Create the plot
     fig, ax = plt.subplots(figsize=(6, 4))
     ax.plot(x, y, linewidth=3)
 
-    # Configure axes and title
     ax.set_xlabel("x")
     ax.set_ylabel(f"{' '.join(func.__name__.split('_')).title()}(x)")
     ax.set_title(f"{' '.join(func.__name__.split('_')).title()} Function")
 
-    # Configure axis limits
     ax.set_xlim(-5, 5)
     ax.set_ylim(-1.5, 1.5)
-
-    # Add grid
     ax.grid(True)
 
     if save:
-        pic_path: str = f"./static/{func.__name__}_function.png"
+        pic_path: str = f"./static/img/{func.__name__}_function.png"
 
         fig.tight_layout()
         fig.savefig(pic_path, dpi=200)
@@ -115,7 +110,7 @@ def plot_all_activations_and_derivatives(
     ax2.legend()
 
     if save:
-        pic_path: str = f"./static/{filename}"
+        pic_path: str = f"./static/img/{filename}"
 
         fig.tight_layout()
         fig.savefig(pic_path, dpi=300)
